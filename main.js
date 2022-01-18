@@ -42,7 +42,7 @@ function new_image()
 		canvas.add(ball_obj);
 
 	});
-	new_image();
+	
 	// write code to Upload ball image on canvas
 }
 
@@ -62,23 +62,22 @@ function my_keydown(e)
 		document.getElementById("myCanvas").style.borderColor="red";
 	}
 	
-	else{
-		if(keyPressed == '38')
+	else if(keyPressed == '38')
 		{
 			up();
 			console.log("up");
 		}
-		if(keyPressed == '40')
+		else if(keyPressed == '40')
 		{
 			down();
 			console.log("down");
 		}
-		if(keyPressed == '37')
+		else if(keyPressed == '37')
 		{
 			left();
 			console.log("left");
 		}
-		if(keyPressed == '39')
+		else if(keyPressed == '39')
 		{
 			right();
 			console.log("right");
@@ -89,14 +88,17 @@ function my_keydown(e)
 	{
 		if(ball_y >=450){
 			ball_y=ball_-block_image_height;
-			canvas.remove()	// Write a code to move ball upward.
+			canvas.remove(ball_obj);
+			new_image();// Write a code to move ball upward.
 	}
+}
 
 	function down()
 	{
 		if(ball_y <=450){
-			ball_y=ball_y+block_image_height;
-			canvas.remove()
+			ball_y=ball_y+block_image_height;	canvas.remove(ball_obj);
+			new_image();
+			
 		}
 		 // Write a code to move ball downward.
 	}
@@ -107,7 +109,8 @@ function my_keydown(e)
 		{
 			if(ball_y <=450){
 				ball_y=ball_y+block_image_height;
-				canvas.remove()
+				canvas.remove(ball_obj);
+			new_image();
 			
 		}
 	}
@@ -118,9 +121,11 @@ function my_keydown(e)
 		{
 			if(ball_x <=1050){
 				ball_x=ball_x+block_image_width;
-				canvas.remove()// Write a code to move ball right side.
+				canvas.remove(ball_obj);
+				new_image();
 		}
 	}
-	
+	}
 }
+
 
